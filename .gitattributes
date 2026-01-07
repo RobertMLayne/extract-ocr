@@ -6,6 +6,7 @@
 *.zip filter=lfs diff=lfs merge=lfs -text
 *.docx filter=lfs diff=lfs merge=lfs -text
 *.pptx filter=lfs diff=lfs merge=lfs -text
+*.xlsx filter=lfs diff=lfs merge=lfs -text
 *.mp4 filter=lfs diff=lfs merge=lfs -text
 # Common image assets (saved web pages often include these)
 *.png filter=lfs diff=lfs merge=lfs -text
