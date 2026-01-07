@@ -1,0 +1,149 @@
+{
+  // Silence "multiple formatters" notifications by making choices explicit.
+  // Install the recommended extensions in .vscode/extensions.json.
+
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+
+  // Use the repo venv by default (Windows)
+  "python.defaultInterpreterPath": "${workspaceFolder}\\.venv312\\Scripts\\python.exe",
+
+  "python.languageServer": "Pylance",
+
+  // Pylance / Python analysis performance
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.autoImportCompletions": true,
+  // Analyze only files you open (faster + avoids noisy analysis progress notifications)
+  "python.analysis.diagnosticMode": "openFilesOnly",
+  // If you still see the stuck notification "… file(s) and … cells to analyze",
+  // light mode tends to avoid the analysis-status churn that triggers it.
+  // Remove this line if you prefer full Pylance features in this workspace.
+  "python.analysis.languageServerMode": "light",
+  // Workaround for a Pylance/Jupyter analysis-status notification bug that can get stuck
+  // ("… files and … cells to analyze").
+  // If this causes any unwanted side effects, remove it and update Pylance to the latest version.
+  "python.analysis.enablePytestSupport": true,
+  "python.analysis.indexing": false,
+  "python.analysis.useLibraryCodeForTypes": false,
+  "python.analysis.exclude": [
+    "**/.*/**",
+    "**/.venv/**",
+    "**/.venv*/**",
+    "**/.mypy_cache/**",
+    "**/__pycache__/**",
+    "**/node_modules/**",
+    "docs/endnote/export/**",
+    "docs/pyuspto/local/latest/**"
+  ],
+
+  // Keep file watching/search fast in this repo (large generated artifacts).
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/.venv/**": true,
+    "**/.venv*/**": true,
+    "**/.mypy_cache/**": true,
+    "docs/endnote/export/**": true,
+    "docs/pyuspto/local/latest/**": true
+  },
+  "search.exclude": {
+    "**/.venv/**": true,
+    "**/.venv*/**": true,
+    "**/.mypy_cache/**": true,
+    "docs/endnote/export/**": true,
+    "docs/pyuspto/local/latest/**": true
+  },
+  "files.exclude": {
+    "**/.mypy_cache": true,
+    "**/__pycache__": true,
+    "**/.venv": true
+  },
+
+  // Copilot Chat customization (repo-scoped)
+  // - Instructions live in `.github/copilot-instructions.md` and `.github/instructions/*.instructions.md`
+  // - Prompts live in `.github/prompts/*.prompt.md`
+  "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+  "chat.useAgentsMdFile": true,
+  "chat.promptFilesRecommendations": {
+    "repo-doc-export-triage": true,
+    "endnote-export-smoke": "resourcePath =~ /docs[\\/]endnote[\\/]/",
+    "endnote-export-full": "resourcePath =~ /docs[\\/]endnote[\\/]/",
+    "pyuspto-fetch-latest": "resourcePath =~ /docs[\\/]pyuspto[\\/]/"
+  },
+  "chat.mcp.gallery.enabled": true,
+
+  // Default formatters by language
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "chat.mcp.serverSampling": {
+    "extract-ocr/.vscode/mcp.json: git": {
+      "allowedModels": [
+        "copilot/auto",
+        "copilot/claude-haiku-4.5",
+        "copilot/claude-opus-41",
+        "copilot/claude-opus-4.5",
+        "copilot/claude-sonnet-4",
+        "copilot/claude-sonnet-4.5",
+        "copilot/gemini-2.5-pro",
+        "copilot/gemini-3-flash-preview",
+        "copilot/gemini-3-pro-preview",
+        "copilot/gpt-4.1",
+        "copilot/gpt-4o",
+        "copilot/gpt-5",
+        "copilot/gpt-5-mini",
+        "copilot/gpt-5-codex",
+        "copilot/gpt-5.1",
+        "copilot/gpt-5.1-codex",
+        "copilot/gpt-5.1-codex-max",
+        "copilot/gpt-5.1-codex-mini",
+        "copilot/gpt-5.2",
+        "copilot/grok-code-fast-1",
+        "copilot/oswe-vscode-prime"
+      ]
+    },
+    "extract-ocr/.vscode/mcp.json: filesystem": {
+      "allowedModels": [
+        "copilot/claude-haiku-4.5",
+        "copilot/auto",
+        "copilot/claude-opus-41",
+        "copilot/claude-opus-4.5",
+        "copilot/claude-sonnet-4",
+        "copilot/claude-sonnet-4.5",
+        "copilot/gemini-2.5-pro",
+        "copilot/gemini-3-flash-preview",
+        "copilot/gemini-3-pro-preview",
+        "copilot/gpt-4.1",
+        "copilot/gpt-4o",
+        "copilot/gpt-5",
+        "copilot/gpt-5-mini",
+        "copilot/gpt-5-codex",
+        "copilot/gpt-5.1",
+        "copilot/gpt-5.1-codex",
+        "copilot/gpt-5.1-codex-max",
+        "copilot/gpt-5.1-codex-mini",
+        "copilot/gpt-5.2",
+        "copilot/grok-code-fast-1",
+        "copilot/oswe-vscode-prime"
+      ]
+    }
+  }
+}

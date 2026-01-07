@@ -1,0 +1,12 @@
+# Minimal runtime requirements for the helper scripts in this repo
+requests
+beautifulsoup4
+markdownify
+tqdm
+html2text
+
+# PDF text extraction (used when rendering non-HTML artifacts)
+pypdf
+
+# Optional typing stubs (improves editor/type checking)
+types-requests

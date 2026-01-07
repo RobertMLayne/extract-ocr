@@ -1,0 +1,6 @@
+# Development-only requirements (optional)
+# Install with:
+#   .\.venv312\Scripts\python.exe -m pip install -r requirements-dev.txt
+
+pyright
+ruff

@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"python.languageServer": "Pylance",
+		"github.copilot.chat.codeGeneration.useInstructionFiles": true,
+		"chat.useAgentsMdFile": true,
+		"chat.mcp.gallery.enabled": true
+	}
+}

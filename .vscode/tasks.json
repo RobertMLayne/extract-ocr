@@ -1,0 +1,186 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Python: syntax-check export_endnote25_windows.py",
+      "type": "shell",
+      "command": "${workspaceFolder}\\.venv312\\Scripts\\python.exe",
+      "args": ["-m", "py_compile", "scripts\\export_endnote25_windows.py"],
+      "problemMatcher": []
+    },
+    {
+      "label": "Python: install dev tools (requirements-dev.txt)",
+      "type": "shell",
+      "command": "${workspaceFolder}\\.venv312\\Scripts\\python.exe",
+      "args": ["-m", "pip", "install", "-r", "requirements-dev.txt"],
+      "problemMatcher": []
+    },
+    {
+      "label": "Python: type-check export_endnote25_windows.py (pyright)",
+      "type": "shell",
+      "command": "${workspaceFolder}\\.venv312\\Scripts\\python.exe",
+      "args": ["-m", "pyright", "scripts\\export_endnote25_windows.py"],
+      "problemMatcher": {
+        "owner": "pyright",
+        "fileLocation": ["relative", "${workspaceFolder}"],
+        "pattern": [
+          {
+            "regexp": "^(.+):(\\d+):(\\d+)\\s+-\\s+(error|warning|information):\\s+(.*)$",
+            "file": 1,
+            "line": 2,
+            "column": 3,
+            "severity": 4,
+            "message": 5
+          }
+        ]
+      }
+    },
+    {
+      "label": "Python: lint export_endnote25_windows.py (ruff)",
+      "type": "shell",
+      "command": "${workspaceFolder}\\.venv312\\Scripts\\python.exe",
+      "args": ["-m", "ruff", "check", "scripts\\export_endnote25_windows.py"],
+      "problemMatcher": {
+        "owner": "ruff",
+        "fileLocation": ["relative", "${workspaceFolder}"],
+        "pattern": [
+          {
+            "regexp": "^(.+):(\\d+):(\\d+):\\s+([A-Z]\\d{3,4})\\s+(.*)$",
+            "file": 1,
+            "line": 2,
+            "column": 3,
+            "code": 4,
+            "message": 5
+          }
+        ]
+      }
+    },
+    {
+      "label": "EndNote: export (smoke 5 pages, quick)",
+      "type": "shell",
+      "command": "${workspaceFolder}\\.venv312\\Scripts\\python.exe",
+      "dependsOn": ["Python: syntax-check export_endnote25_windows.py"],
+      "dependsOrder": "sequence",
+      "args": [
+        "scripts\\export_endnote25_windows.py",
+        "--leftpanel",
+        "docs\\EndNote 25\\endnote25_windows_leftpanel.html",
+        "--out",
+        "docs\\EndNote 25\\export\\endnote25-windows-smoke",
+        "--max-pages",
+        "5",
+        "--clean",
+        "--validate",
+        "--max-missing-sample",
+        "25"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "EndNote: export (smoke 5 pages, strict)",
+      "type": "shell",
+      "command": "${workspaceFolder}\\.venv312\\Scripts\\python.exe",
+      "dependsOn": [
+        "Python: syntax-check export_endnote25_windows.py",
+        "Python: lint export_endnote25_windows.py (ruff)",
+        "Python: type-check export_endnote25_windows.py (pyright)"
+      ],
+      "dependsOrder": "sequence",
+      "args": [
+        "scripts\\export_endnote25_windows.py",
+        "--leftpanel",
+        "docs\\EndNote 25\\endnote25_windows_leftpanel.html",
+        "--out",
+        "docs\\EndNote 25\\export\\endnote25-windows-smoke",
+        "--max-pages",
+        "5",
+        "--clean",
+        "--validate",
+        "--max-missing-sample",
+        "25"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "EndNote: export (smoke 5 pages)",
+      "type": "shell",
+      "command": "pwsh",
+      "dependsOn": ["EndNote: export (smoke 5 pages, strict)"],
+      "dependsOrder": "sequence",
+      "args": [
+        "-NoProfile",
+        "-Command",
+        "Write-Host 'Alias task: use EndNote: export (smoke 5 pages, strict) for the real runner.'; exit 0"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "USPTO: ingest data.uspto.gov (smoke 50 pages)",
+      "type": "shell",
+      "command": "${workspaceFolder}\\.venv312\\Scripts\\python.exe",
+      "args": [
+        "scripts\\ingest_data_uspto_gov.py",
+        "--out",
+        "docs\\USPTO ODP\\export\\data-uspto-gov-smoke",
+        "--max-pages",
+        "50"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "pyUSPTO: fetch latest docs",
+      "type": "shell",
+      "command": "${workspaceFolder}\\.venv312\\Scripts\\python.exe",
+      "args": ["docs\\pyuspto\\fetch_latest_docs.py"],
+      "problemMatcher": []
+    },
+    {
+      "label": "Pylance: reset workspace state (dry run)",
+      "type": "shell",
+      "command": "pwsh",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}\\vscode\\global\\Reset-PythonPylanceWorkspaceState.ps1",
+        "-WorkspacePath",
+        "${workspaceFolder}"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Pylance: reset workspace state (apply)",
+      "type": "shell",
+      "command": "pwsh",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}\\vscode\\global\\Reset-PythonPylanceWorkspaceState.ps1",
+        "-WorkspacePath",
+        "${workspaceFolder}",
+        "-Apply"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Pylance: reset workspace state (apply + clear global storage)",
+      "type": "shell",
+      "command": "pwsh",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}\\vscode\\global\\Reset-PythonPylanceWorkspaceState.ps1",
+        "-WorkspacePath",
+        "${workspaceFolder}",
+        "-Apply",
+        "-ClearGlobalStorage"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}

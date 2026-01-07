@@ -1,0 +1,70 @@
+{
+  "servers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_TOKEN": "${input:github_token_v2}"
+      }
+    },
+    "git": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-git"]
+    },
+    "firecrawl": {
+      "command": "npx",
+      "args": ["-y", "firecrawl-mcp"],
+      "env": {
+        "FIRECRAWL_API_KEY": "${input:firecrawl_api_key}"
+      }
+    },
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "-p", "@upstash/context7-mcp", "context7-mcp"],
+      "env": {
+        "CONTEXT7_API_KEY": "${input:context7_api_key}"
+      }
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "-p", "@playwright/mcp", "mcp-server-playwright"]
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "--allowed-path",
+        "${workspaceFolder}/src",
+        "--allowed-path",
+        "${workspaceFolder}/.github",
+        "--allowed-path",
+        "${workspaceFolder}/.vscode",
+        "--allowed-path",
+        "${workspaceFolder}/docs",
+        "--allowed-path",
+        "${workspaceFolder}/scripts"
+      ]
+    }
+  },
+  "inputs": [
+    {
+      "id": "github_token_v2",
+      "type": "promptString",
+      "description": "GitHub Personal Access Token (classic or fine-grained) with repo access as needed",
+      "password": true
+    },
+    {
+      "id": "firecrawl_api_key",
+      "type": "promptString",
+      "description": "Firecrawl API key (used by firecrawl-mcp)",
+      "password": true
+    },
+    {
+      "id": "context7_api_key",
+      "type": "promptString",
+      "description": "Context7 API key (CONTEXT7_API_KEY)",
+      "password": true
+    }
+  ]
+}

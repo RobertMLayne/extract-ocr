@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "extract-ocr"
+version = "0.0.0"
+description = "Python utilities to download and convert documentation into local/offline artifacts"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "requests",
+  "beautifulsoup4",
+  "markdownify",
+  "tqdm",
+  "html2text",
+  "pypdf",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pyright",
+  "ruff",
+]
+
+[project.scripts]
+extract_ocr = "extract_ocr.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 79
+extend-exclude = [
+  ".venv*",
+  "tmp",
+  "docs/**/export",
+]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]

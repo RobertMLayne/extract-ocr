@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+**/*.egg-info/
+
+# Virtual environments
+.venv/
+.venv*/
+
+# OS/editor
+.DS_Store
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/mcp.json
+
+# Temporary/scratch
+tmp*/
+tmp_pylance*
+
+# Generated doc exports (reproducible via scripts)
+docs/**/export/
+docs/**/export/**
+docs/**/local/latest/
+docs/**/local/latest/**
+
+# Historical casing/paths (Windows is case-insensitive; git isn't)
+docs/endnote/export/
+docs/EndNote 25/export/
+docs/pyuspto/local/latest/
+docs/pyUSPTO/local/latest/
+docs/USPTO ODP/export/

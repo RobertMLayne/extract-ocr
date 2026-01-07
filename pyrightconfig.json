@@ -1,0 +1,19 @@
+{
+  "pythonVersion": "3.12",
+  "venvPath": ".",
+  "venv": ".venv312",
+  "typeCheckingMode": "basic",
+  "include": ["src", "scripts"],
+  "exclude": [
+    "**/.venv*",
+    "**/__pycache__",
+    "**/.mypy_cache",
+    "**/tmp",
+    "**/docs/**/export"
+  ],
+  "reportMissingTypeStubs": "none",
+  "reportUnknownMemberType": "none",
+  "reportUnknownVariableType": "none",
+  "reportUnknownArgumentType": "none",
+  "reportUnknownParameterType": "none"
+}

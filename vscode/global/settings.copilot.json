@@ -1,0 +1,11 @@
+{
+  "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+  "chat.useAgentsMdFile": true,
+  "chat.promptFilesRecommendations": {
+    "repo-doc-export-triage": true,
+    "endnote-export-smoke": "resourcePath =~ /docs[\\/]endnote[\\/]/",
+    "endnote-export-full": "resourcePath =~ /docs[\\/]endnote[\\/]/",
+    "pyuspto-fetch-latest": "resourcePath =~ /docs[\\/]pyuspto[\\/]/"
+  },
+  "chat.mcp.gallery.enabled": true
+}
