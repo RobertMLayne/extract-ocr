@@ -87,13 +87,13 @@ Reset caches (PowerShell):
 
 ## EndNote 2025 (EndNote 25) Windows exporter
 
-Input TOC HTML: `docs/EndNote 25/endnote25_windows_leftpanel.html`
+Input TOC HTML: `docs/EndNote 25/seeds/endnote25_windows_leftpanel.html`
 
 Run:
 
 ```powershell
 C:/Dev/Projects/extract-ocr/.venv312/Scripts/python.exe scripts/export_endnote25_windows.py `
-  --leftpanel "docs/EndNote 25/endnote25_windows_leftpanel.html" `
+  --leftpanel "docs/EndNote 25/seeds/endnote25_windows_leftpanel.html" `
   --out "docs/EndNote 25/export/endnote25-windows" `
   --clean
 ```

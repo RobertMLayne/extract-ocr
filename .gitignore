@@ -35,3 +35,7 @@ docs/EndNote 25/export/
 docs/pyuspto/local/latest/
 docs/pyUSPTO/local/latest/
 docs/USPTO ODP/export/
+
+# pyUSPTO extracted HTML snapshots (keep curated inputs under docs/pyUSPTO/seeds/)
+docs/pyUSPTO/html/
+docs/pyUSPTO/html/**

@@ -17,9 +17,9 @@
 
 - Use the repo virtualenv interpreter: `${workspaceFolder}\.venv312\Scripts\python.exe`
 - EndNote exporter smoke test (also available as a VS Code task):
-  - `python scripts/export_endnote25_windows.py --leftpanel "docs/EndNote 25/endnote25_windows_leftpanel.html" --out "docs/EndNote 25/export/endnote25-windows-smoke" --max-pages 5 --clean --validate`
+  - `python scripts/export_endnote25_windows.py --leftpanel "docs/EndNote 25/seeds/endnote25_windows_leftpanel.html" --out "docs/EndNote 25/export/endnote25-windows-smoke" --max-pages 5 --clean --validate`
 - Full EndNote export:
-  - `python scripts/export_endnote25_windows.py --leftpanel "docs/EndNote 25/endnote25_windows_leftpanel.html" --out "docs/EndNote 25/export/endnote25-windows" --clean`
+  - `python scripts/export_endnote25_windows.py --leftpanel "docs/EndNote 25/seeds/endnote25_windows_leftpanel.html" --out "docs/EndNote 25/export/endnote25-windows" --clean`
 - pyUSPTO fetch:
   - `python docs/pyUSPTO/fetch_latest_docs.py`
 

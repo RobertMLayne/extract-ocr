@@ -7,7 +7,7 @@ It does not print page bodies to stdout by default.
 Typical usage:
     C:/Dev/Projects/extract-ocr/.venv312/Scripts/python.exe \
         scripts/export_endnote25_windows.py \
-    --leftpanel "docs/EndNote 25/endnote25_windows_leftpanel.html" \
+    --leftpanel "docs/EndNote 25/seeds/endnote25_windows_leftpanel.html" \
     --out "docs/EndNote 25/export/endnote25-windows"
 
 If you don't have the left panel HTML, you can still export a single page:

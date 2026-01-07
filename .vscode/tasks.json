@@ -64,7 +64,7 @@
       "args": [
         "scripts\\export_endnote25_windows.py",
         "--leftpanel",
-        "docs\\EndNote 25\\endnote25_windows_leftpanel.html",
+        "docs\\EndNote 25\\seeds\\endnote25_windows_leftpanel.html",
         "--out",
         "docs\\EndNote 25\\export\\endnote25-windows-smoke",
         "--max-pages",
@@ -89,7 +89,7 @@
       "args": [
         "scripts\\export_endnote25_windows.py",
         "--leftpanel",
-        "docs\\EndNote 25\\endnote25_windows_leftpanel.html",
+        "docs\\EndNote 25\\seeds\\endnote25_windows_leftpanel.html",
         "--out",
         "docs\\EndNote 25\\export\\endnote25-windows-smoke",
         "--max-pages",
