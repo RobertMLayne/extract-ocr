@@ -4,6 +4,18 @@ Small utilities for producing local/offline documentation artifacts.
 
 - Architecture overview: [ARCHITECTURE.md](ARCHITECTURE.md)
 
+## Git LFS (required for this repo)
+
+This repo stores large/binary documentation artifacts in Git LFS (not regular Git blobs).
+
+Before cloning/pulling, install Git LFS and run:
+
+```powershell
+git lfs install
+```
+
+If Git LFS is not installed, you will see pointer files instead of the real binaries.
+
 ## Copilot + VS Code customization
 
 This repo includes Copilot instruction and prompt files for repeatable workflows.
